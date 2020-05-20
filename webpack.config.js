@@ -67,15 +67,14 @@ return {
     plugins: [new TsConfigPathsPlugin()]
   },
 
-  devtool: production ? '' : 'inline-source-map',
+  devtool: '',
 
   optimization: {
     splitChunks: {
       chunks: 'all'
     },
-    minimizer: [ new TerserJsPlugin({
-      sourceMap: production ? false : true,
-    })]
+    minimize: true,
+    minimizer: [ new TerserJsPlugin() ]
   },
 
   plugins: [
